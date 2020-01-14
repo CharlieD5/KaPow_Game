@@ -12,12 +12,29 @@ public class VoiceControl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        actions.Add("forward", Forward);
+        
+
+        // "Boing"
         actions.Add("boing", Boing);
+        actions.Add("boy", Boing);
+        actions.Add("bong", Boing);
+        actions.Add("oi", Boing);
+
+        // "Pew-Pew"
+
+        // "Skrrt"
+        actions.Add("skirt", Skirt);
+        actions.Add("blurt", Skirt);
+
         actions.Add("down", Down);
         actions.Add("back", Back);
-        actions.Add("skirt", Skirt);
+        
         actions.Add("dash", Dash);
+
+        // "Swoosh"
+        actions.Add("swoosh", Forward);
+        actions.Add("swish", Forward);
+        actions.Add("forward", Forward);
 
         keywordRecognizer = new KeywordRecognizer(actions.Keys.ToArray());
         keywordRecognizer.OnPhraseRecognized += RecognizedSpeech;
