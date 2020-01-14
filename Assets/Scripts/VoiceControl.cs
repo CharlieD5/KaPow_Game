@@ -12,8 +12,6 @@ public class VoiceControl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
-
         // "Boing"
         actions.Add("boing", Boing);
         actions.Add("boy", Boing);
@@ -22,9 +20,16 @@ public class VoiceControl : MonoBehaviour
 
         // "Pew-Pew"
 
+        // "Zoom"
+
+        // "Pow"
+
+        // "Zap"
+
         // "Skrrt"
-        actions.Add("skirt", Skirt);
-        actions.Add("blurt", Skirt);
+        actions.Add("skirt", Skrrt);
+        actions.Add("blurt", Skrrt);
+        actions.Add("shirt", Skrrt);
 
         actions.Add("down", Down);
         actions.Add("back", Back);
@@ -73,7 +78,7 @@ public class VoiceControl : MonoBehaviour
         transform.Translate(0, -1, 0);
     }
 
-    private void Skirt()
+    private void Skrrt()
     {
         transform.Translate(5, 0, 0);
     }
