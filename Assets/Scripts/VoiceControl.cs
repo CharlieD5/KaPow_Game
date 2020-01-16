@@ -20,26 +20,26 @@ public class VoiceControl : MonoBehaviour
         actions.Add("boeing", Boing);
 
         // "Pew-Pew"
-        actions.Add("pew", Boing);
-        actions.Add("pew pew", Boing);
-        actions.Add("Q", Boing);
-        actions.Add("QQ", Boing);
-        actions.Add("cute", Boing);
-        actions.Add("cute cute", Boing);
-        actions.Add("pikachu", Boing);
+        actions.Add("pew", Pew);
+        actions.Add("pew pew", Pew);
+        actions.Add("Q", Pew);
+        actions.Add("QQ", Pew);
+        actions.Add("cute", Pew);
+        actions.Add("cute cute", Pew);
+        actions.Add("pikachu", Pew);
 
         // "Zoom"
         actions.Add("zoom", Zoom);
 
         // "Pow"
-        actions.Add("Powell", Zoom);
-        actions.Add("pow", Zoom);
-        actions.Add("Bow", Zoom);
-        actions.Add("how", Zoom);
+        actions.Add("Powell", Pow);
+        actions.Add("pow", Pow);
+        actions.Add("Bow", Pow);
+        actions.Add("how", Pow);
 
         // "Zap"
-        actions.Add("zap", Zoom);
-        actions.Add("zep", Zoom);
+        actions.Add("zap", Zap);
+        actions.Add("zep", Zap);
 
         // "Skrrt"
         actions.Add("skirt", Skrrt);
@@ -66,7 +66,25 @@ public class VoiceControl : MonoBehaviour
         actions[speech.text].Invoke();
     }
 
+
+    // This is where we set the action that happens when this word is said
     private void Forward()
+    {
+        transform.Translate(1, 0, 0);
+    }
+
+
+    private void Zap()
+    {
+        transform.Translate(1, 0, 0);
+    }
+
+    private void Pow()
+    {
+        transform.Translate(1, 0, 0);
+    }
+
+    private void Pew()
     {
         transform.Translate(1, 0, 0);
     }
