@@ -17,28 +17,42 @@ public class VoiceControl : MonoBehaviour
         actions.Add("boy", Boing);
         actions.Add("bong", Boing);
         actions.Add("oi", Boing);
+        actions.Add("boeing", Boing);
 
         // "Pew-Pew"
+        actions.Add("pew", Boing);
+        actions.Add("pew pew", Boing);
+        actions.Add("Q", Boing);
+        actions.Add("QQ", Boing);
+        actions.Add("cute", Boing);
+        actions.Add("cute cute", Boing);
+        actions.Add("pikachu", Boing);
 
         // "Zoom"
+        actions.Add("zoom", Zoom);
 
         // "Pow"
+        actions.Add("Powell", Zoom);
+        actions.Add("pow", Zoom);
+        actions.Add("Bow", Zoom);
+        actions.Add("how", Zoom);
 
         // "Zap"
+        actions.Add("zap", Zoom);
+        actions.Add("zep", Zoom);
 
         // "Skrrt"
         actions.Add("skirt", Skrrt);
-        actions.Add("blurt", Skrrt);
         actions.Add("shirt", Skrrt);
 
-        actions.Add("down", Down);
-        actions.Add("back", Back);
-        
-        actions.Add("dash", Dash);
-
         // "Swoosh"
-        actions.Add("swoosh", Forward);
-        actions.Add("swish", Forward);
+        actions.Add("swoosh", Swoosh);
+        actions.Add("swish", Swoosh);
+        actions.Add("toosh", Swoosh);
+        actions.Add("switch", Swoosh);
+        actions.Add("search", Swoosh);
+
+
         actions.Add("forward", Forward);
 
         keywordRecognizer = new KeywordRecognizer(actions.Keys.ToArray());
@@ -57,13 +71,7 @@ public class VoiceControl : MonoBehaviour
         transform.Translate(1, 0, 0);
     }
 
-    private void Dash()
-    {
-        transform.Translate(5, 0, 0);
-    }
-
-
-    private void Back()
+    private void Skrrt()
     {
         transform.Translate(-1, 0, 0);
     }
@@ -73,12 +81,12 @@ public class VoiceControl : MonoBehaviour
         transform.Translate(0, 1, 0);
     }
 
-    private void Down()
+    private void Swoosh()
     {
         transform.Translate(0, -1, 0);
     }
 
-    private void Skrrt()
+    private void Zoom()
     {
         transform.Translate(5, 0, 0);
     }
