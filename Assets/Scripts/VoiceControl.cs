@@ -12,12 +12,48 @@ public class VoiceControl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        actions.Add("forward", Forward);
+        // "Boing"
         actions.Add("boing", Boing);
-        actions.Add("down", Down);
-        actions.Add("back", Back);
-        actions.Add("skirt", Skirt);
-        actions.Add("dash", Dash);
+        actions.Add("boy", Boing);
+        actions.Add("bong", Boing);
+        actions.Add("oi", Boing);
+        actions.Add("boeing", Boing);
+
+        // "Pew-Pew"
+        actions.Add("pew", Pew);
+        actions.Add("pew pew", Pew);
+        actions.Add("Q", Pew);
+        actions.Add("QQ", Pew);
+        actions.Add("cute", Pew);
+        actions.Add("cute cute", Pew);
+        actions.Add("pikachu", Pew);
+
+        // "Zoom"
+        actions.Add("zoom", Zoom);
+
+        // "Pow"
+        actions.Add("Powell", Pow);
+        actions.Add("pow", Pow);
+        actions.Add("Bow", Pow);
+        actions.Add("how", Pow);
+
+        // "Zap"
+        actions.Add("zap", Zap);
+        actions.Add("zep", Zap);
+
+        // "Skrrt"
+        actions.Add("skirt", Skrrt);
+        actions.Add("shirt", Skrrt);
+
+        // "Swoosh"
+        actions.Add("swoosh", Swoosh);
+        actions.Add("swish", Swoosh);
+        actions.Add("toosh", Swoosh);
+        actions.Add("switch", Swoosh);
+        actions.Add("search", Swoosh);
+
+
+        actions.Add("forward", Forward);
 
         keywordRecognizer = new KeywordRecognizer(actions.Keys.ToArray());
         keywordRecognizer.OnPhraseRecognized += RecognizedSpeech;
@@ -30,18 +66,30 @@ public class VoiceControl : MonoBehaviour
         actions[speech.text].Invoke();
     }
 
+
+    // This is where we set the action that happens when this word is said
     private void Forward()
     {
         transform.Translate(1, 0, 0);
     }
 
-    private void Dash()
+
+    private void Zap()
     {
-        transform.Translate(5, 0, 0);
+        transform.Translate(1, 0, 0);
     }
 
+    private void Pow()
+    {
+        transform.Translate(1, 0, 0);
+    }
 
-    private void Back()
+    private void Pew()
+    {
+        transform.Translate(1, 0, 0);
+    }
+
+    private void Skrrt()
     {
         transform.Translate(-1, 0, 0);
     }
@@ -51,12 +99,12 @@ public class VoiceControl : MonoBehaviour
         transform.Translate(0, 1, 0);
     }
 
-    private void Down()
+    private void Swoosh()
     {
         transform.Translate(0, -1, 0);
     }
 
-    private void Skirt()
+    private void Zoom()
     {
         transform.Translate(5, 0, 0);
     }
