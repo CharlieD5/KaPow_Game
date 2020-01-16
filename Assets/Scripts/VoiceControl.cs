@@ -7,42 +7,71 @@ using UnityEngine.Windows.Speech;
 
 public class VoiceControl : MonoBehaviour
 {
+
+    public float Thrust = 1.0f;
     private KeywordRecognizer keywordRecognizer;
     private Dictionary<string, Action> actions = new Dictionary<string, Action>();
+
+    public Rigidbody PlayerBody;
     // Start is called before the first frame update
     void Start()
     {
+        PlayerBody = GetComponent<Rigidbody>();
+         
+        // "Smash"
+        actions.Add("smash", Smash);
+        actions.Add("snatch", Smash);
+
+        // "KaBoom"
+        actions.Add("boom", KaBoom);
+        actions.Add("kaboom", KaBoom);
+
         // "Boing"
-        actions.Add("boing", Boing);
+       /* actions.Add("boing", Boing);
         actions.Add("boy", Boing);
         actions.Add("bong", Boing);
         actions.Add("oi", Boing);
-        actions.Add("boeing", Boing);
+        actions.Add("Boeing", Boing);
+        actions.Add("bring", Boing);
+        actions.Add("bling", Boing);
+        actions.Add("wing", Boing);
+        actions.Add("coin", Boing);
+        actions.Add("boring", Boing);
+        actions.Add("ring", Boing); */
 
         // "Pew-Pew"
         actions.Add("pew", Pew);
         actions.Add("pew pew", Pew);
+        actions.Add("q", Pew);
+        actions.Add("Puma", Pew);
         actions.Add("Q", Pew);
         actions.Add("QQ", Pew);
         actions.Add("cute", Pew);
         actions.Add("cute cute", Pew);
-        actions.Add("pikachu", Pew);
+        actions.Add("Pikachu", Pew);
+        actions.Add("pill", Pew);
 
         // "Zoom"
         actions.Add("zoom", Zoom);
+        actions.Add("Zen", Zoom);
+        actions.Add("resume", Zoom);
 
         // "Pow"
-        actions.Add("Powell", Pow);
+        /*actions.Add("Powell", Pow);
         actions.Add("pow", Pow);
         actions.Add("Bow", Pow);
         actions.Add("how", Pow);
+        actions.Add("wow", Pow);
+        actions.Add("Paul", Pow);*/
 
         // "Zap"
         actions.Add("zap", Zap);
         actions.Add("zep", Zap);
+        actions.Add("Zach", Zap); // ?
 
         // "Skrrt"
         actions.Add("skirt", Skrrt);
+        actions.Add("skrt", Skrrt);
         actions.Add("shirt", Skrrt);
 
         // "Swoosh"
@@ -51,7 +80,7 @@ public class VoiceControl : MonoBehaviour
         actions.Add("toosh", Swoosh);
         actions.Add("switch", Swoosh);
         actions.Add("search", Swoosh);
-
+        actions.Add("sushi", Swoosh);
 
         actions.Add("forward", Forward);
 
@@ -73,37 +102,44 @@ public class VoiceControl : MonoBehaviour
         transform.Translate(1, 0, 0);
     }
 
-
+    // Magic Power
     private void Zap()
     {
         transform.Translate(1, 0, 0);
     }
 
-    private void Pow()
+    // Punch
+    private void Smash()
     {
         transform.Translate(1, 0, 0);
     }
 
+    // Shoot
     private void Pew()
     {
         transform.Translate(1, 0, 0);
     }
 
+    // Stop
     private void Skrrt()
     {
-        transform.Translate(-1, 0, 0);
+        Debug.Log("I was Here");
+        PlayerBody.AddForce(-Thrust, 0.0f, 0.0f, ForceMode.Impulse);
     }
 
-    private void Boing()
+    // Jump
+    private void KaBoom()
     {
         transform.Translate(0, 1, 0);
     }
 
+    // Slide under object
     private void Swoosh()
     {
         transform.Translate(0, -1, 0);
     }
 
+    // Speed Boost
     private void Zoom()
     {
         transform.Translate(5, 0, 0);
