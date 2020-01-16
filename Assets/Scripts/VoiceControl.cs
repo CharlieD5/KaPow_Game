@@ -7,11 +7,17 @@ using UnityEngine.Windows.Speech;
 
 public class VoiceControl : MonoBehaviour
 {
+
+    public float Thrust = 1.0f;
     private KeywordRecognizer keywordRecognizer;
     private Dictionary<string, Action> actions = new Dictionary<string, Action>();
+
+    public Rigidbody PlayerBody;
     // Start is called before the first frame update
     void Start()
     {
+        PlayerBody = GetComponent<Rigidbody>();
+         
         // "Smash"
         actions.Add("smash", Smash);
         actions.Add("snatch", Smash);
@@ -117,7 +123,8 @@ public class VoiceControl : MonoBehaviour
     // Stop
     private void Skrrt()
     {
-        transform.Translate(-1, 0, 0);
+        Debug.Log("I was Here");
+        PlayerBody.AddForce(-Thrust, 0.0f, 0.0f, ForceMode.Impulse);
     }
 
     // Jump
