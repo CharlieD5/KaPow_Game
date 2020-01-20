@@ -2,25 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletController : MonoBehaviour
+public class UIController : MonoBehaviour
 {
-    public float bulletSpeed = 20f;
+    public VoiceControl voiceControl;
     private GameObject Player;
-
     Rigidbody2D rb;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         Player = GameObject.FindGameObjectWithTag("Player");
-        
-        rb.velocity = new Vector2(bulletSpeed, 0);
-        Destroy(gameObject, 4f);
+        voiceControl = Player.GetComponent<VoiceControl>();
+        rb.velocity = new Vector2(0, voiceControl.GetUIMoveSpeed());
+        Destroy(gameObject, voiceControl.GetUIDuration());
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        transform.position = new Vector2(Player.transform.position.x,transform.position.y);
     }
 }

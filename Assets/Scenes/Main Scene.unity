@@ -683,8 +683,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Bullet: {fileID: 2762985296471938239, guid: 1fdbe2c492ac6cd46ac0bea0888f9a58, type: 3}
+  UIPrefabs:
+  - {fileID: 8132753125322895577, guid: 8f75cb5329d3eb04dbceb5d58bd56bea, type: 3}
+  - {fileID: 3368258663953414715, guid: 6a388773e74ca104a9fa09f01e2a50f4, type: 3}
+  - {fileID: 6485063434630027906, guid: 24c7445cd387b8947a3e7d50c920e686, type: 3}
+  - {fileID: 5442890226997978302, guid: 06de6c7857530384c8bd553dfd6e4980, type: 3}
+  - {fileID: 3438473346331338685, guid: 5f32ef10dc05e8242b2a45c43fdc18ac, type: 3}
+  - {fileID: 4871993199761573217, guid: accb7bfbe39dde14482fc38bfbc4e840, type: 3}
+  - {fileID: 3376430912245454598, guid: 3b35f0c487185d3499b729501f40b5a4, type: 3}
   Running: {fileID: 1553012879}
-  Speed: 1
+  Speed: 4
   Jump: 10
   dashDistance: 2
   SlowDuration: 3
@@ -692,6 +700,8 @@ MonoBehaviour:
   SlideDistance: 5
   SlideSpeed: 4
   ShootIntervel: 3
+  UIDuration: 3
+  UIMoveSpeed: 3
 --- !u!1 &1651469035
 GameObject:
   m_ObjectHideFlags: 0

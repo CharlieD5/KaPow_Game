@@ -10,6 +10,7 @@ public class VoiceControl : MonoBehaviour
 
     //public float Thrust = 1.0f;
     public GameObject Bullet;
+    public GameObject[] UIPrefabs;
 
     private KeywordRecognizer keywordRecognizer;
     private Dictionary<string, Action> actions = new Dictionary<string, Action>();
@@ -24,6 +25,8 @@ public class VoiceControl : MonoBehaviour
     public float SlideDistance = 3;
     public float SlideSpeed = 4;
     public float ShootIntervel = 3;
+    public float UIDuration = 3;
+    public float UIMoveSpeed = 3;
 
     private Rigidbody2D PlayerBody;
 
@@ -37,10 +40,12 @@ public class VoiceControl : MonoBehaviour
     private float _PlayerCurrentX;
     private GameObject[] _BulletSpawned;
     private GameObject _BoxToDestory;
+    private int _UIID;
     // Start is called before the first frame update
     void Start()
     {
         Running.SetSpeed(Speed);
+        
         PlayerBody = GetComponent<Rigidbody2D>();
          
         // "Smash"
@@ -130,15 +135,18 @@ public class VoiceControl : MonoBehaviour
     // Magic Power
     private void Zap()
     {
+        _UIID = 4;
         transform.Translate(1, 0, 0);
     }
 
     // Punch
     private void Smash()
     {
+        _UIID = 3;
         //play player animation here.
         if (_IsPlayerReadyToPunch == true)
         {
+            Instantiate(UIPrefabs[_UIID], new Vector3(PlayerBody.transform.position.x, PlayerBody.transform.position.y + 5, 0), Quaternion.identity);
             //destroy the object here
             Destroy(_BoxToDestory);
             _BoxToDestory = null;
@@ -149,8 +157,10 @@ public class VoiceControl : MonoBehaviour
     // Shoot
     private void Pew()
     {
+        _UIID = 1;
         if (_IsPlayerReadyToShoot == true)
         {
+            Instantiate(UIPrefabs[_UIID], new Vector3(PlayerBody.transform.position.x, PlayerBody.transform.position.y + 5, 0), Quaternion.identity);
             var temp = Instantiate(Bullet,PlayerBody.transform.position,Quaternion.identity);
          
         }
@@ -159,8 +169,10 @@ public class VoiceControl : MonoBehaviour
     // Stop
     private void Skrrt()
     {
+        _UIID = 2;
         if (_IsPlayerSlow == false)
         {
+            Instantiate(UIPrefabs[_UIID], new Vector3(PlayerBody.transform.position.x, PlayerBody.transform.position.y + 5, 0), Quaternion.identity);
             Running.SetSpeed(SlowSpeed);
             _IsPlayerSlow = true;
             StartCoroutine("CalculateTime");
@@ -170,10 +182,11 @@ public class VoiceControl : MonoBehaviour
     // Jump
     private void KaBoom()
     {
-        Debug.Log(_IsPlayerGrounded);
+        _UIID = 0;
+        // Debug.Log(_IsPlayerGrounded);
         if (_IsPlayerGrounded)
         {
-            
+            Instantiate(UIPrefabs[_UIID], new Vector3(PlayerBody.transform.position.x, PlayerBody.transform.position.y + 5, 0), Quaternion.identity);
             PlayerBody.AddForce(Vector3.up * Jump, ForceMode2D.Impulse);
             _IsPlayerGrounded = false;
         }
@@ -182,8 +195,10 @@ public class VoiceControl : MonoBehaviour
     // Slide under object
     private void Swoosh()
     {
+        _UIID = 6;
         if (_IsPlayerSliding==false)
         {
+            Instantiate(UIPrefabs[_UIID], new Vector3(PlayerBody.transform.position.x, PlayerBody.transform.position.y+5,0), Quaternion.identity);
             Running.SetSpeed(Speed+ SlideSpeed);
             _PlayerCurrentX = PlayerBody.transform.position.x;
             _IsPlayerSliding = true;
@@ -193,6 +208,8 @@ public class VoiceControl : MonoBehaviour
     // Speed Boost
     private void Zoom()
     {
+        _UIID = 5;
+        Instantiate(UIPrefabs[_UIID], new Vector3(PlayerBody.transform.position.x, PlayerBody.transform.position.y + 5, 0), Quaternion.identity);
         PlayerBody.transform.position += new Vector3(dashDistance, 0, 0);
     }
     private void OnCollisionEnter2D(Collision2D collision)
@@ -235,5 +252,13 @@ public class VoiceControl : MonoBehaviour
     {
         yield return new WaitForSecondsRealtime(ShootIntervel);
         _IsPlayerReadyToShoot = true;
+    }
+    public float GetUIDuration()
+    {
+        return UIDuration;
+    }
+    public float GetUIMoveSpeed()
+    {
+        return UIMoveSpeed;
     }
 }
