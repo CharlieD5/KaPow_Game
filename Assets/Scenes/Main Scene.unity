@@ -168,6 +168,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GroundType-1 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5348861540296121622, guid: f9c0bfc913798ce47ad5f54d9e93d90e,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.x
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5348861540296121623, guid: f9c0bfc913798ce47ad5f54d9e93d90e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -538,6 +543,7 @@ GameObject:
   - component: {fileID: 1553012878}
   - component: {fileID: 1553012875}
   - component: {fileID: 1553012879}
+  - component: {fileID: 1553012880}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -650,7 +656,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!114 &1553012879
 MonoBehaviour:
@@ -664,7 +670,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e11a928a1af573b4093173bb34044103, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+--- !u!114 &1553012880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1553012873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc87a51d372fea54e8e76e78e208563c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Bullet: {fileID: 2762985296471938239, guid: 1fdbe2c492ac6cd46ac0bea0888f9a58, type: 3}
+  Running: {fileID: 1553012879}
+  Speed: 1
+  Jump: 10
+  dashDistance: 2
+  SlowDuration: 3
+  SlowSpeed: 2
+  SlideDistance: 5
+  SlideSpeed: 4
+  ShootIntervel: 3
 --- !u!1 &1651469035
 GameObject:
   m_ObjectHideFlags: 0

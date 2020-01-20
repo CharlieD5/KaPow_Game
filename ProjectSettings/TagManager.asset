@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - DeathZone
+  - Ground
+  - Box
+  - Bullet
   layers:
   - Default
   - TransparentFX

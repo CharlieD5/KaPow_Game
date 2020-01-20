@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5348861540296121622}
   m_Layer: 0
   m_Name: GroundType-1
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -125,7 +125,7 @@ BoxCollider2D:
     adaptiveTilingThreshold: 0.5
     drawMode: 2
     adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_AutoTiling: 1
   serializedVersion: 2
-  m_Size: {x: 10.116297, y: 0.64}
+  m_Size: {x: 10.116297, y: 0.8}
   m_EdgeRadius: 0
