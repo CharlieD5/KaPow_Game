@@ -29,7 +29,6 @@ public class Score : MonoBehaviour
     {
         distance = Vector3.Distance(player.position, pos) / 4;
         scoreString = (int)distance;
-        Debug.Log(scoreString);
         scoreVal.text = scoreString.ToString();
     }
 }
