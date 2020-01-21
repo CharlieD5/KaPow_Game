@@ -40,6 +40,8 @@ public class VoiceControl : MonoBehaviour
     private float _PlayerCurrentX;
     private GameObject[] _BulletSpawned;
     private GameObject _BoxToDestory;
+    private bool GameState;
+
     private int _UIID;
     // Start is called before the first frame update
     void Start()
@@ -129,19 +131,24 @@ public class VoiceControl : MonoBehaviour
     // This is where we set the action that happens when this word is said
     private void Forward()
     {
+        keywordRecognizer.Stop();
         transform.Translate(1, 0, 0);
+        keywordRecognizer.Start();
     }
 
     // Magic Power
     private void Zap()
     {
+        keywordRecognizer.Stop();
         _UIID = 4;
         transform.Translate(1, 0, 0);
+        keywordRecognizer.Start();
     }
 
     // Punch
     private void Smash()
     {
+        keywordRecognizer.Stop();
         _UIID = 3;
         //play player animation here.
         if (_IsPlayerReadyToPunch == true)
@@ -152,11 +159,13 @@ public class VoiceControl : MonoBehaviour
             _BoxToDestory = null;
             _IsPlayerReadyToPunch = false;
         }
+        keywordRecognizer.Start();
     }
 
     // Shoot
     private void Pew()
     {
+        keywordRecognizer.Stop();
         _UIID = 1;
         if (_IsPlayerReadyToShoot == true)
         {
@@ -164,11 +173,13 @@ public class VoiceControl : MonoBehaviour
             var temp = Instantiate(Bullet,PlayerBody.transform.position,Quaternion.identity);
          
         }
+        keywordRecognizer.Start();
     }
 
     // Stop
     private void Skrrt()
     {
+        keywordRecognizer.Stop();
         _UIID = 2;
         if (_IsPlayerSlow == false)
         {
@@ -177,11 +188,13 @@ public class VoiceControl : MonoBehaviour
             _IsPlayerSlow = true;
             StartCoroutine("CalculateTime");
         }
+        keywordRecognizer.Start();
     }
 
     // Jump
     private void KaBoom()
     {
+        keywordRecognizer.Stop();
         _UIID = 0;
         // Debug.Log(_IsPlayerGrounded);
         if (_IsPlayerGrounded)
@@ -190,11 +203,13 @@ public class VoiceControl : MonoBehaviour
             PlayerBody.AddForce(Vector3.up * Jump, ForceMode2D.Impulse);
             _IsPlayerGrounded = false;
         }
+        keywordRecognizer.Start();
     }
 
     // Slide under object
     private void Swoosh()
     {
+        keywordRecognizer.Stop();
         _UIID = 6;
         if (_IsPlayerSliding==false)
         {
@@ -203,14 +218,17 @@ public class VoiceControl : MonoBehaviour
             _PlayerCurrentX = PlayerBody.transform.position.x;
             _IsPlayerSliding = true;
         }
+        keywordRecognizer.Start();
     }
 
     // Speed Boost
     private void Zoom()
     {
+        keywordRecognizer.Stop();
         _UIID = 5;
         Instantiate(UIPrefabs[_UIID], new Vector3(PlayerBody.transform.position.x, PlayerBody.transform.position.y + 5, 0), Quaternion.identity);
         PlayerBody.transform.position += new Vector3(dashDistance, 0, 0);
+        keywordRecognizer.Start();
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -233,10 +251,15 @@ public class VoiceControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (_IsPlayerSliding == true && ((_PlayerCurrentX+SlideDistance)-PlayerBody.transform.position.x)<0.0)
+        if (_IsPlayerSliding == true && ((_PlayerCurrentX+SlideDistance)-PlayerBody.transform.position.x)<0.0 && gameObject.activeInHierarchy)
         {
             _IsPlayerSliding = false;
             Running.SetSpeed(Speed);
+        }
+        else
+        {
+            Debug.Log("Player Has Died");
+            keywordRecognizer.Dispose();
         }
     }
 
