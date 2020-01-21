@@ -142,10 +142,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 372f227ae432a2246ab7b360c6e619b5, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   pos: {x: 0, y: 0, z: 0}
   player: {fileID: 156856334}
+  scoreVal: {fileID: 0}
 --- !u!114 &156856336
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -156,8 +157,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cc87a51d372fea54e8e76e78e208563c, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   Bullet: {fileID: 2762985296471938239, guid: 1fdbe2c492ac6cd46ac0bea0888f9a58, type: 3}
   UIPrefabs:
   - {fileID: 8132753125322895577, guid: 8f75cb5329d3eb04dbceb5d58bd56bea, type: 3}
@@ -168,8 +169,8 @@ MonoBehaviour:
   - {fileID: 4871993199761573217, guid: accb7bfbe39dde14482fc38bfbc4e840, type: 3}
   - {fileID: 3376430912245454598, guid: 3b35f0c487185d3499b729501f40b5a4, type: 3}
   Running: {fileID: 156856337}
-  Speed: 5
-  Jump: 5
+  Speed: 3
+  Jump: 7
   dashDistance: 5
   SlowDuration: 4
   SlowSpeed: 1
@@ -188,8 +189,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e11a928a1af573b4093173bb34044103, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!50 &156856338
 Rigidbody2D:
   serializedVersion: 4
@@ -315,8 +316,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_RaycastTarget: 1
@@ -519,8 +520,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0d0d116200d81504996ed6a2f18fb273, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1145209826
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -735,8 +736,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   m_IgnoreReversedGraphics: 1
   m_BlockingObjects: 0
   m_BlockingMask:
@@ -752,8 +753,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   m_UiScaleMode: 0
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
@@ -798,7 +799,7 @@ RectTransform:
   m_Children:
   - {fileID: 379710098}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1056,8 +1057,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e11a928a1af573b4093173bb34044103, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1553012880
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1068,8 +1069,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cc87a51d372fea54e8e76e78e208563c, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   Bullet: {fileID: 2762985296471938239, guid: 1fdbe2c492ac6cd46ac0bea0888f9a58, type: 3}
   UIPrefabs:
   - {fileID: 8132753125322895577, guid: 8f75cb5329d3eb04dbceb5d58bd56bea, type: 3}
@@ -1081,7 +1082,7 @@ MonoBehaviour:
   - {fileID: 3376430912245454598, guid: 3b35f0c487185d3499b729501f40b5a4, type: 3}
   Running: {fileID: 1553012879}
   Speed: 1.19
-  Jump: 10
+  Jump: 20
   dashDistance: 2
   SlowDuration: 3
   SlowSpeed: 2
@@ -1100,8 +1101,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 372f227ae432a2246ab7b360c6e619b5, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   pos: {x: 0, y: 0, z: 0}
   player: {fileID: 1553012874}
   scoreVal: {fileID: 379710099}
@@ -1132,8 +1133,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0e9d769ddd407094e896e0ca20f1908f, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   groundPrefabList:
   - {fileID: 5348861540296121618, guid: f9c0bfc913798ce47ad5f54d9e93d90e, type: 3}
   - {fileID: 2763928325528388878, guid: ebdf5d389b1196646b523acfb5581c4d, type: 3}

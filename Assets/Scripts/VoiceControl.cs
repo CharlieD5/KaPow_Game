@@ -18,7 +18,7 @@ public class VoiceControl : MonoBehaviour
     public PlayerRunningScript Running;
     [Header("Player Settings")]
     public float Speed = 5;
-    public float Jump = 5;
+    public float Jump = 10;
     public float dashDistance = 5;
     public float SlowDuration = 4;
     public float SlowSpeed = 1;
@@ -249,19 +249,19 @@ public class VoiceControl : MonoBehaviour
       
     }
     // Update is called once per frame
-    void Update()
+   /* void Update()
     {
-        if (_IsPlayerSliding == true && ((_PlayerCurrentX+SlideDistance)-PlayerBody.transform.position.x)<0.0 && gameObject.activeInHierarchy)
+        //if (_IsPlayerSliding == true && ((_PlayerCurrentX+SlideDistance)-PlayerBody.transform.position.x)<0.0)
         {
-            _IsPlayerSliding = false;
-            Running.SetSpeed(Speed);
+           // _IsPlayerSliding = false;
+            //Running.SetSpeed(Speed);
         }
-        else
+        //else
         {
-            Debug.Log("Player Has Died");
-            keywordRecognizer.Dispose();
+           // Debug.Log("Player Has Died");
+            //keywordRecognizer.Dispose();
         }
-    }
+    }*/
 
     IEnumerator CalculateTime()
     {
