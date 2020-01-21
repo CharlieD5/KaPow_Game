@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -112,8 +113,6 @@ public class VoiceControl : MonoBehaviour
         actions.Add("search", Swoosh);
         actions.Add("sushi", Swoosh);
 
-        actions.Add("forward", Forward);
-
         keywordRecognizer = new KeywordRecognizer(actions.Keys.ToArray());
         keywordRecognizer.OnPhraseRecognized += RecognizedSpeech;
         keywordRecognizer.Start();
@@ -123,14 +122,16 @@ public class VoiceControl : MonoBehaviour
     {
         Debug.Log(speech.text);
         actions[speech.text].Invoke();
+       // StringBuilder builder = new StringBuilder();
+       // builder.AppendFormat("{0} ({1}){2}", speech.text, speech.confidence, Environment.NewLine);
+       // builder.AppendFormat("\tTimestamp: {0}{1}", speech.phraseStartTime, Environment.NewLine);
+       // builder.AppendFormat("\tDuration: {0} seconds{1}", speech.phraseDuration.TotalSeconds, Environment.NewLine);
+       // Debug.Log(builder.ToString());
+
     }
 
 
     // This is where we set the action that happens when this word is said
-    private void Forward()
-    {
-        transform.Translate(1, 0, 0);
-    }
 
     // Magic Power
     private void Zap()
