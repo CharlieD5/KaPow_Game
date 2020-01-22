@@ -12,8 +12,8 @@ public class VoiceControl : MonoBehaviour
     //public float Thrust = 1.0f;
     public GameObject Bullet;
     public GameObject[] UIPrefabs;
-    public AnimationClip jump;
-    private Animation anim;
+    
+    private Animator _animator;
 
     private KeywordRecognizer keywordRecognizer;
     private Dictionary<string, Action> actions = new Dictionary<string, Action>();
@@ -49,7 +49,7 @@ public class VoiceControl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        anim = GetComponent<Animation>();
+        _animator = GetComponent<Animator>();
         Running.SetSpeed(Speed);
 
         PlayerBody = GetComponent<Rigidbody2D>();
@@ -159,6 +159,8 @@ public class VoiceControl : MonoBehaviour
         //play player animation here.
         if (_IsPlayerReadyToPunch == true)
         {
+           StartCoroutine("StopPunchAnimation");
+            _animator.SetBool("IsPunching",true);
             Instantiate(UIPrefabs[_UIID], new Vector3(PlayerBody.transform.position.x, PlayerBody.transform.position.y + 5, 0), Quaternion.identity);
             //destroy the object here
             Destroy(_BoxToDestory);
@@ -201,8 +203,7 @@ public class VoiceControl : MonoBehaviour
     private void KaBoom()
     {
         keywordRecognizer.Stop();
-        anim.clip = jump;
-        anim.Play();
+   
 
         // foreach (AnimationState state in anim)
         //{
@@ -212,9 +213,11 @@ public class VoiceControl : MonoBehaviour
         // Debug.Log(_IsPlayerGrounded);
         if (_IsPlayerGrounded)
         {
+            _animator.SetBool("IsJumping",true);
             Instantiate(UIPrefabs[_UIID], new Vector3(PlayerBody.transform.position.x, PlayerBody.transform.position.y + 5, 0), Quaternion.identity);
             PlayerBody.AddForce(Vector3.up * Jump, ForceMode2D.Impulse);
             _IsPlayerGrounded = false;
+           
         }
         keywordRecognizer.Start();
     }
@@ -262,19 +265,25 @@ public class VoiceControl : MonoBehaviour
 
     }
     // Update is called once per frame
-   /* void Update()
+    void Update()
     {
-        //if (_IsPlayerSliding == true && ((_PlayerCurrentX+SlideDistance)-PlayerBody.transform.position.x)<0.0)
+        if (Input.GetKey(KeyCode.Space))
         {
-           // _IsPlayerSliding = false;
-            //Running.SetSpeed(Speed);
+
+
+            KaBoom();
         }
-        //else
+        if (Input.GetKey(KeyCode.E))
         {
-           // Debug.Log("Player Has Died");
-            //keywordRecognizer.Dispose();
+            Smash();
         }
-    }*/
+        if (_IsPlayerGrounded)
+        {
+            _animator.SetBool("IsJumping", false);
+        }
+       
+       
+    }
 
     IEnumerator CalculateTime()
     {
@@ -282,6 +291,12 @@ public class VoiceControl : MonoBehaviour
             yield return new WaitForSecondsRealtime(SlowDuration);
             Running.SetSpeed(Speed);
             _IsPlayerSlow = false;
+
+    }
+    IEnumerator StopPunchAnimation()
+    {
+        yield return new WaitForSecondsRealtime(0.3f);
+        _animator.SetBool("IsPunching", false);
 
     }
     IEnumerator ShootTimer()

@@ -25,7 +25,7 @@ public class PlayerRunningScript : MonoBehaviour
         {
             
           
-          _PlayerRigidBody.transform.position += Vector3.up * _Jump * Time.deltaTime;
+         // _PlayerRigidBody.transform.position += Vector3.up * _Jump * Time.deltaTime;
         }
 
     }
