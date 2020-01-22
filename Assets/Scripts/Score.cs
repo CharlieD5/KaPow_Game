@@ -31,4 +31,6 @@ public class Score : MonoBehaviour
         scoreString = (int)distance;
         scoreVal.text = scoreString.ToString();
     }
+
+    
 }
