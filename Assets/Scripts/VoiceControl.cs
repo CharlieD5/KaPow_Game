@@ -58,6 +58,10 @@ public class VoiceControl : MonoBehaviour
         // "KaBoom"
         actions.Add("boom", KaBoom);
         actions.Add("kaboom", KaBoom);
+        actions.Add("kaboo", KaBoom);
+        actions.Add("kaaboo", KaBoom);
+        actions.Add("taboo", KaBoom);
+        actions.Add("could", KaBoom);
 
         // "Boing"
         /* actions.Add("boing", Boing);

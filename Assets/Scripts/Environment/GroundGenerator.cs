@@ -17,6 +17,7 @@ public class GroundGenerator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         _ActivePlatforms = new List<GameObject>();
         _NumOfTilesOnScreen = 4;
         _Player = GameObject.FindGameObjectWithTag ( "Player"  );
