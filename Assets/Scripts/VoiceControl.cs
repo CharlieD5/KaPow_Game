@@ -12,6 +12,8 @@ public class VoiceControl : MonoBehaviour
     //public float Thrust = 1.0f;
     public GameObject Bullet;
     public GameObject[] UIPrefabs;
+    public AnimationClip jump;
+    private Animation anim;
 
     private KeywordRecognizer keywordRecognizer;
     private Dictionary<string, Action> actions = new Dictionary<string, Action>();
@@ -47,6 +49,7 @@ public class VoiceControl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        anim = GetComponent<Animation>();
         Running.SetSpeed(Speed);
 
         PlayerBody = GetComponent<Rigidbody2D>();
@@ -198,6 +201,13 @@ public class VoiceControl : MonoBehaviour
     private void KaBoom()
     {
         keywordRecognizer.Stop();
+        anim.clip = jump;
+        anim.Play();
+
+        // foreach (AnimationState state in anim)
+        //{
+        //    state.speed = 1.0F;
+        //}
         _UIID = 0;
         // Debug.Log(_IsPlayerGrounded);
         if (_IsPlayerGrounded)
