@@ -135,7 +135,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 14fe400c907026f4ea796bd6f3b69ce4,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.7
+      value: -4.534
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 14fe400c907026f4ea796bd6f3b69ce4,
         type: 3}
@@ -192,23 +192,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: BorfModel_WithRig
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 14fe400c907026f4ea796bd6f3b69ce4,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 14fe400c907026f4ea796bd6f3b69ce4, type: 3}
---- !u!114 &156856335
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8296172668047973099}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 372f227ae432a2246ab7b360c6e619b5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pos: {x: 0, y: 0, z: 0}
-  player: {fileID: -4216859302048453862, guid: 0e410a7761d5ac448a97834b075822e0, type: 3}
-  scoreVal: {fileID: 0}
 --- !u!114 &156856336
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -709,7 +699,7 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: 0e410a7761d5ac448a97834b075822e0,
         type: 3}
       propertyPath: m_TagString
-      value: Player
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: 0e410a7761d5ac448a97834b075822e0,
         type: 3}
@@ -808,7 +798,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pos: {x: 0, y: 0, z: 0}
   player: {fileID: 1237394926}
-  scoreVal: {fileID: 0}
+  scoreVal: {fileID: 379710099}
 --- !u!61 &1237394930
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -854,7 +844,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!1 &1276070571
 GameObject:
