@@ -163,9 +163,7 @@ public class VoiceControl : MonoBehaviour
             _animator.SetBool("IsPunching",true);
             Instantiate(UIPrefabs[_UIID], new Vector3(PlayerBody.transform.position.x, PlayerBody.transform.position.y + 5, 0), Quaternion.identity);
             //destroy the object here
-            Destroy(_BoxToDestory);
-            _BoxToDestory = null;
-            _IsPlayerReadyToPunch = false;
+           
         }
         keywordRecognizer.Start();
     }
@@ -243,7 +241,7 @@ public class VoiceControl : MonoBehaviour
         keywordRecognizer.Stop();
         _UIID = 5;
         Instantiate(UIPrefabs[_UIID], new Vector3(PlayerBody.transform.position.x, PlayerBody.transform.position.y + 5, 0), Quaternion.identity);
-        PlayerBody.transform.position += new Vector3(dashDistance, 0, 0);
+        PlayerBody.transform.position += new Vector3(dashDistance, PlayerBody.transform.position.y, 0);
         keywordRecognizer.Start();
     }
     private void OnCollisionEnter2D(Collision2D collision)
@@ -260,9 +258,9 @@ public class VoiceControl : MonoBehaviour
             _IsPlayerReadyToPunch = true;
         }
     }
-    private void OnCollisionExit2D(Collision2D collision)
+    private void OnCollisionEnter(Collision collision)
     {
-
+        
     }
     // Update is called once per frame
     void Update()
@@ -276,6 +274,10 @@ public class VoiceControl : MonoBehaviour
         if (Input.GetKey(KeyCode.E))
         {
             Smash();
+        }
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            Pew();
         }
         if (_IsPlayerGrounded)
         {
@@ -295,7 +297,10 @@ public class VoiceControl : MonoBehaviour
     }
     IEnumerator StopPunchAnimation()
     {
-        yield return new WaitForSecondsRealtime(0.3f);
+        yield return new WaitForSecondsRealtime(0.5f);
+        Destroy(_BoxToDestory);
+        _BoxToDestory = null;
+        _IsPlayerReadyToPunch = false;
         _animator.SetBool("IsPunching", false);
 
     }

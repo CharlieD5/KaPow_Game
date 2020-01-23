@@ -8,7 +8,7 @@ public class PlayerRunningScript : MonoBehaviour
     private GameObject _Player;
     private Rigidbody2D _PlayerRigidBody;
     private float speed;
-   
+    
     private float _Jump = 6f;
     // Start is called before the first frame update
     void Start()
@@ -21,11 +21,14 @@ public class PlayerRunningScript : MonoBehaviour
     void Update()
     {
          _PlayerRigidBody.transform.position += Vector3.right * speed * Time.deltaTime;
-        if (Input.GetKey(KeyCode.Space))
+
+
+
+        if (Input.GetKey(KeyCode.Q))
         {
-            
-          
-         // _PlayerRigidBody.transform.position += Vector3.up * _Jump * Time.deltaTime;
+
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
         }
 
     }
