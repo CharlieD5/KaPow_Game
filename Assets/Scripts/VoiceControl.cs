@@ -24,7 +24,7 @@ public class VoiceControl : MonoBehaviour
     public float Jump = 10;
     public float dashDistance = 5;
     public float SlowDuration = 4;
-    public float SlowSpeed = 1;
+    public float SlowSpeed = 2;
     public float SlideDistance = 3;
     public float SlideSpeed = 4;
     public float ShootIntervel = 3;
@@ -92,9 +92,9 @@ public class VoiceControl : MonoBehaviour
         actions.Add("pill", Pew);
 
         // "Zoom"
-        actions.Add("zoom", Zoom);
-        actions.Add("Zen", Zoom);
-        actions.Add("resume", Zoom);
+        //actions.Add("zoom", Zoom);
+        //actions.Add("Zen", Zoom);
+        //actions.Add("resume", Zoom);
 
         // "Pow"
         /*actions.Add("Powell", Pow);
@@ -110,9 +110,9 @@ public class VoiceControl : MonoBehaviour
         actions.Add("Zach", Zap); // ?
 
         // "Skrrt"
-        actions.Add("skirt", Skrrt);
-        actions.Add("skrt", Skrrt);
-        actions.Add("shirt", Skrrt);
+        actions.Add("skirt", Zoom);
+        actions.Add("skrt", Zoom);
+        actions.Add("shirt", Zoom);
 
         // "Swoosh"
         actions.Add("swoosh", Swoosh);
